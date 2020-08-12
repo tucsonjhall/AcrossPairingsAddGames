@@ -7,119 +7,118 @@
 					   backgroundColor = "#dddddd">
 	<fx:Declarations>
 		<s:RadioButtonGroup id = "radiogroup1" />
-
+		
 		<s:RadioButtonGroup id = "primaryGroup" />
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-
+	
 	<fx:Script>
 		<![CDATA[
 			import com.cactusware.managers.PairingsManager;
-			import com.cactusware.models.Pairing;
 			
 			import mx.utils.StringUtil;
-
+			
 			public var primaryDivisionName : String;
 			public var pairings : Array;
 			public var d0Teams : Number;
 			public var d1Teams : Number;
-
+			
 			private var games : Number;
 			private var opponentsDeleted : Array;
 			private var opponentsPlayed : Array;
-
+			
 			private function calculate() : void {
 				d0Teams = d1NS.value;
 				d1Teams = d2NS.value;
 				games = gamesNS.value;
 				primaryDivisionName = primaryGroup.selectedValue as String; // May use this later
-
+				
 				PairingsManager.getPairings( d0Teams, d1Teams, games );
 				pairings = PairingsManager.pairings;
 				System.setClipboard( StringUtil.trim( resultsTI.text ));
-//				tracePairings( pairings );
-
+				//				tracePairings( pairings );
+				
 			}
-
-//			private function tracePairings( pairings : Array ) : void {
-//				var pairing : Pairing;
-//				var str : String = "";
-				// The following is to alternate home away between divisions for an even number of games
-//				var oldVisitor : int;
-//				var oldHome : int;
-//				if ( games % 2 == 1 ) {
-//					for ( var x : uint = 0; x < d0Teams; x++ ) {
-//						pairing = pairings[ x ];
-//						if ( x % 2 == 1 ) {
-//							oldVisitor = pairing.visitorIndex;
-//							oldHome = pairing.homeIndex;
-//							pairing.visitorIndex = oldHome;
-//							pairing.homeIndex = oldVisitor;
-//						}
-//					}
-//				}
-//				for ( var i : uint = 0; i < pairings.length; i++ ) {
-//					pairing = pairings[ i ];
-//					str += pairing.visitorIndex.toString() + "," + pairing.homeIndex + "\n";
-//				}
-//				trace( str );
-//				resultsTI.text = str;
-//				System.setClipboard( resultsTI.text );
-//			}
+			
+			//			private function tracePairings( pairings : Array ) : void {
+			//				var pairing : Pairing;
+			//				var str : String = "";
+			// The following is to alternate home away between divisions for an even number of games
+			//				var oldVisitor : int;
+			//				var oldHome : int;
+			//				if ( games % 2 == 1 ) {
+			//					for ( var x : uint = 0; x < d0Teams; x++ ) {
+			//						pairing = pairings[ x ];
+			//						if ( x % 2 == 1 ) {
+			//							oldVisitor = pairing.visitorIndex;
+			//							oldHome = pairing.homeIndex;
+			//							pairing.visitorIndex = oldHome;
+			//							pairing.homeIndex = oldVisitor;
+			//						}
+			//					}
+			//				}
+			//				for ( var i : uint = 0; i < pairings.length; i++ ) {
+			//					pairing = pairings[ i ];
+			//					str += pairing.visitorIndex.toString() + "," + pairing.homeIndex + "\n";
+			//				}
+			//				trace( str );
+			//				resultsTI.text = str;
+			//				System.setClipboard( resultsTI.text );
+			//			}
 		]]>
 	</fx:Script>
-
+	
 	<s:NumericStepper id = "d1NS"
 					  x = "181"
 					  y = "50.5"
 					  maximum = "100"
 					  value = "6" />
-
+	
 	<s:NumericStepper id = "d2NS"
 					  x = "181"
 					  y = "75.5"
 					  maximum = "100"
 					  value = "10" />
-
+	
 	<s:Label id = "primary_2"
 			 x = "72"
 			 y = "81"
 			 text = "Division 2 Teams" />
-
+	
 	<s:Label x = "72"
 			 y = "56"
 			 text = "Division 1 Teams" />
-
+	
 	<s:VGroup x = "284"
 			  y = "41">
 		<s:RadioButton id = "gamesRB"
 					   label = "Games"
 					   groupName = "radiogroup1"
 					   selected = "true" />
-
+		
 		<s:RadioButton id = "roundsRB"
 					   label = "Rounds"
 					   groupName = "radiogroup1" />
 	</s:VGroup>
-
+	
 	<s:NumericStepper id = "gamesNS"
 					  x = "385"
 					  y = "50.5"
 					  maximum = "100"
 					  value = "13" />
-
+	
 	<s:Button x = "284"
 			  y = "91"
 			  width = "166"
 			  height = "34"
 			  label = "Calculate"
 			  click = "calculate()" />
-
+	
 	<s:Label x = "22"
 			 y = "26"
 			 color = "#FF0000"
 			 text = "Primary" />
-
+	
 	<s:VGroup x = "47"
 			  y = "51">
 		<s:RadioButton id = "primary_1"
@@ -127,17 +126,17 @@
 					   label = ""
 					   groupName = "primaryGroup"
 					   selected = "true" />
-
+		
 		<s:RadioButton label = ""
 					   value = "d2"
 					   groupName = "primaryGroup" />
 	</s:VGroup>
-
+	
 	<s:TextArea id = "resultsTI"
 				y = "168"
 				height = "594"
 				horizontalCenter = "0" />
-
+	
 	<s:Button x = "223"
 			  y = "770"
 			  width = "93"
@@ -147,12 +146,12 @@
 	<!--<s:Label x = "47"
 	y = "144"
 	text = "Remove" />
-
+	
 	<s:NumericStepper id = "teamsToRemoveNS"
 	x = "114"
 	y = "138.5"
 	value = "2" />
-
+	
 	<s:Button x = "210"
 	y = "140"
 	label = "Remove"

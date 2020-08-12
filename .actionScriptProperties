@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<actionScriptProperties analytics="false" mainApplicationPath="AcrossPairings.mxml" projectUUID="70d429b5-fb5a-42e4-a095-200318e4cb57" version="11">
+<actionScriptProperties analytics="false" mainApplicationPath="AcrossPairingsAddGames.mxml" projectUUID="17d4bc17-e0ee-4f99-a52f-c43addd5537e" version="11">
   <compiler additionalCompilerArguments="-locale en_US" autoRSLOrdering="true" copyDependentFiles="true" fteInMXComponents="false" generateAccessible="true" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin-debug" removeUnusedRSL="true" sourceFolderPath="src" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="true" useDebugRSLSwfs="true" useFlashSDK="false" verifyDigests="true" warn="true">
     <compilerSourcePath/>
     <libraryPath defaultLinkType="0">
@@ -14,7 +14,7 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
-    <application path="AcrossPairings.mxml">
+    <application path="AcrossPairingsAddGames.mxml">
       <airExcludes/>
     </application>
   </applications>
